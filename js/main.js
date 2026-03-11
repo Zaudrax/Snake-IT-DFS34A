@@ -4,6 +4,16 @@ let lastDirection = "right";
 let snakeLength = 1;
 let snakePositions = [{ x: 0, y: 0 }];
 
+// TODO:
+// - Handle snake self-collision.
+// - Ensure the apple never spawns on the snake.
+// - Create a simple snake redesign.
+// - Add a score system.
+// - Add a dedicated game-over page.
+// - Prevent instant reverse direction.
+// - Add pause/resume.
+// - Replace alert with an in-game game-over screen.
+
 const containerSize = [
   gameContainer.style.width ? parseInt(gameContainer.style.width) : 0,
   gameContainer.style.height ? parseInt(gameContainer.style.height) : 0,
