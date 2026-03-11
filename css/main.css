@@ -1,19 +1,150 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle at top, #1f2937 0%, #0f172a 65%);
+    color: #f8fafc;
+}
+
+.game-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
 #game-container {
-    border: 1px solid black;
     position: relative;
+    border: 2px solid #334155;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: #111827;
+    background-image:
+        linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 50px 50px;
+    box-shadow: 0 16px 40px rgba(2, 6, 23, 0.45);
+}
+
+#snake,
+.snake-body {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    position: absolute;
+    background: linear-gradient(135deg, #22c55e, #15803d);
+    border: 1px solid rgba(240, 253, 244, 0.4);
 }
 
 #snake {
-    width: 50px;
-    height: 50px;
-    background-color: green;
-    position: absolute;
+    box-shadow: 0 0 0 2px rgba(187, 247, 208, 0.25);
 }
 
 .apple {
     width: 50px;
     height: 50px;
-    background-color: red;
     position: absolute;
     border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fca5a5 0%, #ef4444 55%, #b91c1c 100%);
+    border: 2px solid rgba(254, 226, 226, 0.65);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);
 }
+
+#game-over-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(4px);
+    border-radius: 14px;
+    z-index: 10;
+    animation: fadeIn 0.3s ease;
+}
+
+#game-over-overlay.hidden {
+    display: none;
+}
+
+#game-over-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 40px 52px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(2, 6, 23, 0.6);
+}
+
+#game-over-card h2 {
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    color: #f87171;
+}
+
+#game-over-score {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #94a3b8;
+}
+
+#restart-btn {
+    padding: 10px 32px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #22c55e, #15803d);
+    color: #f0fdf4;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s;
+}
+
+#restart-btn:hover {
+    opacity: 0.85;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+.controls button {
+    width: 46px;
+    height: 46px;
+    border: 1px solid #475569;
+    border-radius: 10px;
+    background: #1e293b;
+    color: #e2e8f0;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background: #334155;
+}
+
